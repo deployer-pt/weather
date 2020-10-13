@@ -2829,6 +2829,11 @@ invariant@^2.2.2, invariant@^2.2.4:
   dependencies:
     loose-envify "^1.0.0"
 
+ipware@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ipware/-/ipware-2.0.0.tgz#5baa8977bb33411cb17d5dd2953a5c5c89be587c"
+  integrity sha512-xOqLoYyWIBcO6ANVZK7GgnuH9V7wbqDf6/MrRi4I+Ae1A11m6jcaNRtMSezypkupRUjiSSLq3F/DTvAM1cZfQw==
+
 is-accessor-descriptor@^0.1.6:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/is-accessor-descriptor/-/is-accessor-descriptor-0.1.6.tgz#a9e12cb3ae8d876727eeef3843f8a0897b5c98d6"
