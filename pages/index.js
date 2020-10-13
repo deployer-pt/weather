@@ -21,7 +21,17 @@ const Home = ({ location }) => {
 }
 
 Home.getInitialProps = async ({ req }) => { 
-  let location = req.headers['x-forwarded-for'] || req.connection.remoteAddress
+  let location =  'nada'
+  if(req) {
+    let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
+    let apiKey = 'a1d158ab609b17188de18fda0ae56cec'
+    let url = `http://api.ipapi.com/${ip}?access_key=${apiKey}&format=1`
+    const res = await fetch(url)
+    const json = await res.json()
+
+    location = json.region_name
+  }
+  
   
   return {
       location
