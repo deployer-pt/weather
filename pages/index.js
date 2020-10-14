@@ -83,9 +83,6 @@ Home.getInitialProps = async ({ req }) => {
   if(req) {
     // Get client IP
     let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
-    if(process.env.NEXT_SERVER_MODE === 'development') {
-      ip = '89.115.169.143'
-    }
     
     // Fetch location from client
     let ipapiUrl = `http://api.ipapi.com/${ip}?access_key=${iapiKey}&format=1`
