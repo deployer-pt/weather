@@ -1,0 +1,80 @@
+$deg: 20deg;
+$first: #ffffff;
+$night: #000000;
+
+@mixin bg_gradient_day($main) {
+  background: $main; 
+  background: -moz-linear-gradient($deg,  $first 60%, $main 100%); 
+  background: -webkit-linear-gradient($deg,  $first 60%, $main 100%); 
+  background: linear-gradient($deg,  $first 60%, $main 100%); 
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$first', endColorstr='$main',GradientType=1 ); 
+}
+
+@mixin bg_gradient_night($main) {
+  background: $main; 
+  background: -moz-linear-gradient($deg,  $first 60%, $main 80%, $night 100%); 
+  background: -webkit-linear-gradient($deg,  $first 60%, $main 80%, $night 100%); 
+  background: linear-gradient($deg,  $first 60%, $main 80%, $night 100%); 
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$first', endColorstr='$main',GradientType=1 ); 
+}
+
+
+
+.bg2.day {
+  @include bg_gradient_day(#F94144);
+}
+
+.bg3.day {
+  @include bg_gradient_day(#577590);
+}
+
+.bg5.day {
+  @include bg_gradient_day(#43AA8B);
+}
+
+.bg6.day {
+  //@include bg_gradient_day(#1e5799);
+}
+
+.bg7.day {
+  @include bg_gradient_day(#90BE6D);
+}
+
+.bg8.day {
+  @include bg_gradient_night(#F3722C);
+}
+
+.bg9.day {
+  @include bg_gradient_day( #F94144);
+}
+
+.bg2.night {
+  @include bg_gradient_night(#F94144);
+}
+
+.bg3.night {
+  @include bg_gradient_night(#577590);
+}
+
+.bg5.night {
+  @include bg_gradient_night(#43AA8B);
+}
+
+.bg6.night {
+  //@include bg_gradient_day(#1e5799);
+}
+
+.bg7.night {
+  @include bg_gradient_night(#90BE6D);
+}
+
+.bg8.night {
+  @include bg_gradient_night(#F3722C);
+}
+
+.bg9.night {
+  @include bg_gradient_night( #F94144);
+}
+
+
+

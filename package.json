@@ -9,8 +9,11 @@
   },
   "dependencies": {
     "ipware": "^2.0.0",
+    "moment": "^2.29.1",
     "next": "9.5.5",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-toastify": "^6.0.9",
+    "sass": "^1.27.0"
   }
 }

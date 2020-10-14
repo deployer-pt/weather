@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;900&display=swap');
+//@import url('https://cdn.linearicons.com/free/1.0.0/icon-font.min.css');
+@import 'reset';
+@import 'background';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20px;
+}
+
+
+.location {
+  font-size: 28px;
+  font-weight: 100;
+  margin-top: 30px;
+  height: 34px;
+  cursor: pointer;
+
+  span {
+    font-size: 20px;
+    font-weight: 200;
+  }
+
+  input {
+    border: none;
+    padding: 5px;
+    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.3);
+    font-size: 24px;
+    background: none;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    color: #495057;
+    color: rgba($color: #000000, $alpha: 0.6);
+  }
+
+  button{
+    border: none;
+    padding: 5px 20px;
+    font-size: 18px;
+    background: rgba($color: #000000, $alpha: 0.8);
+    color: #ffffff;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+.weather {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+
+  .main {
+    text-align: center;
+
+    .icon {
+      font-size: 130px;
+      margin-bottom: 30px;
+    }
+
+    .temperature {
+      display: flex;
+      flex-direction: row;
+      margin-left: 34px;
+      
+      .small {
+        margin: 50px;
+        font-size: 80px;
+        font-weight: 100;
+        opacity: 0.3;
+        
+        sup {
+          font-weight: 200;
+          font-size: 40px;
+        }
+
+        span {
+          display: block;
+          font-size: 20px;
+        }
+      }
+
+      .big {
+        margin: 0 50px;
+        font-size: 160px;
+        font-weight: 200;
+        
+        sup {
+          font-weight: 400;
+          font-size: 80px;
+        }
+      }
+
+    }
+
+    .description {
+      font-size: 48px;
+      font-weight: 200;
+    }
+  }
+  
+}
+
+.description {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+
+  .block {
+    display: flex;
+    flex-direction: row;
+    border-right: 1px solid rgba($color: #000000, $alpha: 0.1);
+    margin-right: 25px;
+    padding: 10px 25px 10px 0;
+
+    &:last-child {
+      border-right: none;
+      padding-right: 0;
+      margin-right: 0;
+    }
+
+    .icon {
+      font-size: 32px;
+      margin-right: 15px;
+    }
+
+    .txt {
+
+
+      span {
+        display: block;
+      }
+    }
+  }
+
+}
+
+
+footer {
+  display: flex;
+  justify-content: center;
+
+  img {
+    height: 26px;
+    margin-bottom: 0px;
+  }
+}
