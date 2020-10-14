@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import moment from 'moment';
+import moment from 'moment-timezone';
 import Weather from '../components/weather';
 import City from '../components/city';
 import Form from '../components/form';
@@ -61,7 +61,7 @@ const Home = ({ locationProps, countryProps, weatherProps, mapsApiKey, openWeath
           <Description weather={weather} />
           <Footer />
         </main> :
-        <Form location={'Lisbon'} country={'PT'} onBtnClick={onFormClick} />
+        <Form location={'Lisbon'} country={''} onBtnClick={onFormClick} />
       }
       <ToastContainer />
     </div>
@@ -95,8 +95,10 @@ Home.getInitialProps = async ({ req }) => {
     lng = json.longitude
   }
 
+  console.log(json)
+
   if(locationProps !== null) {
-    weatherProps = await getWeather({ lat , lng, openWeatherKey })
+    weatherProps = await getWeather({ lat , lng, mapsApiKey, openWeatherKey })
   }else {
     locationProps = null
     countryProps = null
@@ -125,7 +127,7 @@ const searchCity = async (locationProps, mapsApiKey, openWeatherKey) => {
 
   if(json.results.length > 0) {
     let { lat , lng } = json.results[0].geometry.location
-    let weatherProps = await getWeather({ lat , lng, openWeatherKey })
+    let weatherProps = await getWeather({ lat , lng, mapsApiKey, openWeatherKey })
     return {
       locationProps,
       countryProps: null,
@@ -138,14 +140,18 @@ const searchCity = async (locationProps, mapsApiKey, openWeatherKey) => {
   }
 }
 
-const getWeather = async ({ lat , lng, openWeatherKey }) => {
+const getWeather = async ({ lat , lng, mapsApiKey, openWeatherKey }) => {
   let openWeatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude={part}&APPID=${openWeatherKey}&units=metric`
   let res = await fetch(openWeatherUrl)
   let json = await res.json()
 
+  let mapsrUrl = `https://maps.googleapis.com/maps/api/timezone/json?location=${lat},${lng}&timestamp=${json.current.sunrise}&key=${mapsApiKey}`
+  let mapsRes = await fetch(mapsrUrl)
+  let mapsJson = await mapsRes.json()
+
   let weather = {
-    sunrise: moment.unix(json.current.sunrise).format('HH:mm'),
-    sunset: moment.unix(json.current.sunset).format('HH:mm'),
+    sunrise: moment.unix(json.current.sunrise).tz(mapsJson.timeZoneId).format('HH:mm'),
+    sunset: moment.unix(json.current.sunset).tz(mapsJson.timeZoneId).format('HH:mm'),
     temp_current: parseInt(json.current.temp),
     temp_min: parseInt(json.daily[0].temp.min),
     temp_max: parseInt(json.daily[0].temp.max),
