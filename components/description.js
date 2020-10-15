@@ -4,7 +4,7 @@ class Description extends Component {
   render() {
     return (
       <div>
-        <div className="description">
+        <div className="icons-description">
 
           <div className="block">
             <div className="icon"><i className="wi wi-sunrise"></i></div>

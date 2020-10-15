@@ -3,11 +3,23 @@
 @import 'reset';
 @import 'background';
 
+$ipad-portrait: 650px;
+
+@mixin portrait {
+  @media (max-width: #{$ipad-portrait}) {
+      @content
+  }
+}
+
 .container {
   display: flex;
   flex-direction: column;
   height: 100vh;
   padding: 20px;
+
+  @include portrait {
+    height: auto;
+  }
 }
 
 
@@ -68,12 +80,21 @@
       display: flex;
       flex-direction: row;
       margin-left: 34px;
+
+      @include portrait {
+        margin-left: 0;
+      }
       
       .small {
         margin: 50px;
         font-size: 80px;
         font-weight: 100;
         opacity: 0.3;
+
+        @include portrait {
+          margin: 5px;
+          margin-top: 35px;
+        }
         
         sup {
           font-weight: 200;
@@ -90,6 +111,10 @@
         margin: 0 50px;
         font-size: 160px;
         font-weight: 200;
+
+        @include portrait {
+          margin: 0 5px;
+        }
         
         sup {
           font-weight: 400;
@@ -107,10 +132,15 @@
   
 }
 
-.description {
+.icons-description {
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
+
+  @include portrait {
+    flex-direction: column;
+    margin-top: 50px;
+  }
 
   .block {
     display: flex;
@@ -118,6 +148,12 @@
     border-right: 1px solid rgba($color: #000000, $alpha: 0.1);
     margin-right: 25px;
     padding: 10px 25px 10px 0;
+
+    @include portrait {
+      border: none;
+      border-top: 1px solid rgba($color: #000000, $alpha: 0.1);
+      padding: 25px 25px 25px 30%;
+    }
 
     &:last-child {
       border-right: none;

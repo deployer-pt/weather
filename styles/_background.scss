@@ -41,7 +41,7 @@ $night: #000000;
 }
 
 .bg8.day {
-  @include bg_gradient_night(#F3722C);
+  @include bg_gradient_day(#F3722C);
 }
 
 .bg9.day {

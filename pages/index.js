@@ -61,7 +61,9 @@ const Home = ({ locationProps, countryProps, weatherProps, mapsApiKey, openWeath
           <Description weather={weather} />
           <Footer />
         </main> :
-        <Form location={'Lisbon'} country={''} onBtnClick={onFormClick} />
+        <main className={`container`}>
+          <Form location={'Lisbon'} country={''} onBtnClick={onFormClick} />
+        </main>
       }
       <ToastContainer />
     </div>
