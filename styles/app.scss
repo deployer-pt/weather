@@ -19,6 +19,7 @@ $ipad-portrait: 650px;
   width: 100%;
 
   @include portrait {
+    transform: translate3d(0,0,0); 
     height: auto;
   }
 }
