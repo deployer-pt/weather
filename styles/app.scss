@@ -16,6 +16,7 @@ $ipad-portrait: 650px;
   flex-direction: column;
   height: 100vh;
   padding: 20px;
+  width: 100%;
 
   @include portrait {
     height: auto;
